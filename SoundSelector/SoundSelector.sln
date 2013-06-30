@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundSelector", "SoundSelector\SoundSelector.csproj", "{DD17AE58-D59D-4AC1-A71E-B31D58CD092C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{D9F05D15-F1EB-43AB-8BA4-550B8E7A8C63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD17AE58-D59D-4AC1-A71E-B31D58CD092C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD17AE58-D59D-4AC1-A71E-B31D58CD092C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD17AE58-D59D-4AC1-A71E-B31D58CD092C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD17AE58-D59D-4AC1-A71E-B31D58CD092C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F05D15-F1EB-43AB-8BA4-550B8E7A8C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F05D15-F1EB-43AB-8BA4-550B8E7A8C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F05D15-F1EB-43AB-8BA4-550B8E7A8C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F05D15-F1EB-43AB-8BA4-550B8E7A8C63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
