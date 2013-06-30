@@ -1,1 +1,0 @@
-c:\users\alexis\documents\visual studio 2012\Projects\SoundSelector\SoundSelector\bin\Debug\SoundSelector.exe.config
