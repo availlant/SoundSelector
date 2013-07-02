@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparisonEngine.cs" />
+    <Compile Include="FingerprintsCreation\FingerprintsGenerator.cs" />
+    <Compile Include="FingerprintsCreation\Preprocessing.cs" />
+    <Compile Include="FolderManager.cs" />
+    <Compile Include="Model\File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

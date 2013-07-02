@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
 
 namespace SoundSelector
 {
@@ -15,11 +16,22 @@ namespace SoundSelector
         public MainForm()
         {
             InitializeComponent();
+        }        
+
+        private void InitGrid()
+        {
+            dataGridViewResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridViewResults.Columns.Add("path", "Fichier");
         }
+
+        #region Events
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+
+            InitGrid();
         }
 
         private void buttonParcourirFileToSearch_Click(object sender, EventArgs e)
@@ -45,5 +57,18 @@ namespace SoundSelector
                 textBoxFolder.Text = folderBrowserDialog.SelectedPath;
             }
         }
+
+        private void buttonRecherche_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBoxFolder.Text))
+            {
+                return;
+            }
+
+            ComparisonEngine compEngine = new ComparisonEngine(textBoxFile.Text, textBoxFolder.Text);
+            compEngine.Compare();
+        }
+
+        #endregion
     }
 }
