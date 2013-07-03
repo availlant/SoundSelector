@@ -88,13 +88,23 @@ namespace Business.FingerprintsCreation
         {
         }
 
+        /// <summary>
+        /// Je me sers de l'article http://www.codeproject.com/Articles/206507/Duplicates-detector-via-audio-fingerprinting
+        /// qui décrit et "vulgarise" un article posté par des ingénieurs de Google sur le meilleur algorithme de comparaison audio
+        /// </summary>
+        /// <param name="path"></param>
         public void GenerateFingerprints(string path)
         {
+            //Pour la facilité, je stocke tout dans cet objet (TODO : à revoir)
             AudioFile file = new AudioFile(path);
 
+            //Preprocessing the signal
             Preprocessing preprocessingEngine = new Preprocessing(SampleRate, SecondsToProcess, StartProcessingAtSecond);
-
             preprocessingEngine.ReadMonoFromFile(file);
+
+            //SpectrogramCreation
+            Spectrum spectrumEngine = new Spectrum(SampleRate);
+            spectrumEngine.CreateLogSpectrogram(file);
         }
     }
 }
