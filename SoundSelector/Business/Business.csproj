@@ -41,6 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComparisonEngine.cs" />
+    <Compile Include="FFT\Complex.cs" />
+    <Compile Include="FFT\ComplexArray.cs" />
+    <Compile Include="FFT\ComplexF.cs" />
+    <Compile Include="FFT\ComplexMath.cs" />
+    <Compile Include="FFT\ComplexStats.cs" />
+    <Compile Include="FFT\Fourier.cs" />
+    <Compile Include="FFT\FourierDirection.cs" />
     <Compile Include="FingerprintsCreation\FingerprintsGenerator.cs" />
     <Compile Include="FingerprintsCreation\Preprocessing.cs" />
     <Compile Include="FingerprintsCreation\Spectrum.cs" />

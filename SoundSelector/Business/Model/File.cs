@@ -11,7 +11,7 @@ namespace Business.Model
         public string Fullname { get; set; }
 
         public float[] Data { get; set; }
-        public float[] Frames { get; set; }
+        public float[][] Frames { get; set; }
 
         public AudioFile(string fullname)
         {
