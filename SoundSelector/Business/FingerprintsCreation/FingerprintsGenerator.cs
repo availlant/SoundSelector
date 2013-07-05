@@ -60,18 +60,7 @@ namespace Business.FingerprintsCreation
         ///   Number of Min Hash keys per 1 hash function (1 LSH table)
         /// </summary>
         private const int NumberOfKeys = 4;
-
-        /// <summary>
-        ///   Number of threshold votes for a file to be considerate a duplicate
-        /// </summary>
-        private const int ThresholdVotes = 5;
-
-        /// <summary>
-        ///   Value of threshold percentage of fingerprints that needs to be gathered
-        ///   in order to be considered a possible result
-        /// </summary>
-        private const int ThresholdFingerprintsToVote = 7;
-
+        
         /// <summary>
         ///   Down sampling rate
         /// </summary>
@@ -82,10 +71,28 @@ namespace Business.FingerprintsCreation
 
         #endregion
 
-        List<AudioFile> files = new List<AudioFile>(Buffersize);
+        Dictionary<string, HashSet<long[]>> _fingerprints;
+        Dictionary<long, HashSet<string>>[] _hashTables;
+
+        public Dictionary<string, HashSet<long[]>> Fingerprints
+        {
+            get { return _fingerprints; }
+        }
+
+        public Dictionary<long, HashSet<string>>[] HashTables
+        {
+            get { return _hashTables; }
+        }
 
         public FingerprintsGenerator()
         {
+            _hashTables = new Dictionary<long, HashSet<string>>[NumberOfHashTables];
+            for (int i = 0; i < NumberOfHashTables; i++)
+            {
+                _hashTables[i] = new Dictionary<long, HashSet<string>>();
+            }
+
+            _fingerprints = new Dictionary<string, HashSet<long[]>>();
         }
 
         /// <summary>
@@ -95,7 +102,7 @@ namespace Business.FingerprintsCreation
         /// <param name="path"></param>
         public void GenerateFingerprints(string path)
         {
-            //Pour la facilité, je stocke tout dans cet objet (TODO : à revoir)
+            //Pour la facilité, je stocke tout dans cet objet
             AudioFile file = new AudioFile(path);
 
             //Preprocessing the signal
@@ -105,6 +112,81 @@ namespace Business.FingerprintsCreation
             //SpectrogramCreation
             Spectrum spectrumEngine = new Spectrum(SampleRate);
             spectrumEngine.CreateLogSpectrogram(file);
+            spectrumEngine.CutLogarithmizedSpectrum(file);
+
+            //Wavelet Decomposition
+            WaveletDecomposition waveletDecompositionEngine = new WaveletDecomposition();
+            waveletDecompositionEngine.Transform(file);
+
+            // Création de la signature proprement dite
+            Fingerprints.Fingerprints fingerprintManager = new Fingerprints.Fingerprints();
+            List<bool[]> fingerprints = new List<bool[]>();
+            int topWavelets = 200;
+            foreach (var spectralImage in file.SpectralImages)
+            {
+                bool[] image = fingerprintManager.ExtractTopWavelets(spectralImage, topWavelets);
+                fingerprints.Add(image);
+            }
+            file.Fingerprints = fingerprints;
+
+            // MinHash Signature
+            MinHashAndLSH hashEngine = new MinHashAndLSH(NumberOfHashTables, NumberOfKeys);
+            hashEngine.Hash(file);
+
+            //Store the signatures
+            _fingerprints.Add(file.Fullname, new HashSet<long[]>());
+
+            foreach (long[] sign in file.Signatures)
+            {
+                _fingerprints[file.Fullname].Add(sign);
+
+                for (int i = 0; i < NumberOfHashTables; i++)
+                {
+                    if (!_hashTables[i].ContainsKey(sign[i]))
+                    {
+                        _hashTables[i][sign[i]] = new HashSet<string>();
+                    }
+
+                    _hashTables[i][sign[i]].Add(file.Fullname);
+                }
+            }            
+        }
+
+        /// <summary>
+        ///   Get tracks that correspond to a specific hash signature and pass the threshold value
+        /// </summary>
+        /// <param name = "hashSignature">Hash signature of the track</param>
+        /// <param name = "hashTableThreshold">Number of threshold tables</param>
+        /// <returns>Possible candidates</returns>
+        public Dictionary<string, int> GetTracks(string file, long[] signature, int hashTableThreshold)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            // loop through all 25 hash tables
+            for (int i = 0; i < NumberOfHashTables; i++)
+            {
+                if (HashTables[i].ContainsKey(signature[i]))
+                {
+                    HashSet<string> tracks = HashTables[i][signature[i]]; // get the set of tracks that map to a specific hash signature
+
+                    // select all tracks except the original one
+                    foreach (string track in tracks.Where(t => t != file))
+                    {
+                        if (!result.ContainsKey(track))
+                        {
+                            result[track] = 1;
+                        }
+                        else
+                        {
+                            result[track]++;
+                        }
+                    }
+                }
+            }
+
+            // select only those tracks that passed threshold votes
+            Dictionary<string, int> filteredResult = result.Where(item => item.Value >= hashTableThreshold).ToDictionary(item => item.Key, item => item.Value);
+            return filteredResult;
         }
     }
 }

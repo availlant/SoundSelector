@@ -12,6 +12,9 @@ namespace Business.Model
 
         public float[] Data { get; set; }
         public float[][] Frames { get; set; }
+        public List<float[][]> SpectralImages { get; set; }
+        public List<bool[]> Fingerprints { get; set; }
+        public List<long[]> Signatures { get; set; }
 
         public AudioFile(string fullname)
         {

@@ -49,11 +49,16 @@
     <Compile Include="FFT\Fourier.cs" />
     <Compile Include="FFT\FourierDirection.cs" />
     <Compile Include="FingerprintsCreation\FingerprintsGenerator.cs" />
+    <Compile Include="FingerprintsCreation\MinHashAndLSH.cs" />
     <Compile Include="FingerprintsCreation\Preprocessing.cs" />
     <Compile Include="FingerprintsCreation\Spectrum.cs" />
+    <Compile Include="FingerprintsCreation\WaveletDecomposition.cs" />
+    <Compile Include="Fingerprints\Fingerprints.cs" />
     <Compile Include="FolderManager.cs" />
+    <Compile Include="HaarWavelet\HaarWaveletDecomposition.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stride\Stride.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

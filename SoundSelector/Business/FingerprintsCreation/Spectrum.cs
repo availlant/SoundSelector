@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Model;
+using Business.Stride;
 
 namespace Business.FingerprintsCreation
 {
     public class Spectrum
     {
+        Stride.Stride strideBetweenConsecutiveImages = new Stride.Stride(5115, 128 * 64);//64 = overlap; 128 = fingerprintsLenght
+
         int _sampleRate;
 
         const int minFrequency = 318;
@@ -43,6 +46,29 @@ namespace Business.FingerprintsCreation
             }
 
             file.Frames = frames;
+        }
+
+        public void CutLogarithmizedSpectrum(AudioFile file)
+        {
+            int start = strideBetweenConsecutiveImages.FirstStrideSize / 64;
+            int logarithmicBins = file.Frames[0].Length;
+            List<float[][]> spectralImages = new List<float[][]>();
+
+            int width = file.Frames.GetLength(0);
+
+            while (start + 128 < width)
+            {
+                float[][] spectralImage = AllocateMemoryForFingerprintImage(128, logarithmicBins);
+                for (int i = 0; i < 128; i++)
+                {
+                    Array.Copy(file.Frames[start + i], spectralImage[i], logarithmicBins);
+                }
+
+                start += 128 + (strideBetweenConsecutiveImages.StrideSize / 64);
+                spectralImages.Add(spectralImage);
+            }
+
+            file.SpectralImages = spectralImages;
         }
 
         private float[] ExtractLogBins(float[] spectrum, int[] logFrequenciesIndex, int logBins)
@@ -81,6 +107,17 @@ namespace Business.FingerprintsCreation
             }
 
             return indexes;
+        }
+
+        private float[][] AllocateMemoryForFingerprintImage(int fingerprintLength, int logBins)
+        {
+            float[][] frames = new float[fingerprintLength][];
+            for (int i = 0; i < fingerprintLength; i++)
+            {
+                frames[i] = new float[logBins];
+            }
+
+            return frames;
         }
     }
 }
