@@ -16,13 +16,13 @@ namespace SoundSelector
         public MainForm()
         {
             InitializeComponent();
-        }        
+        }
 
         private void InitGrid()
         {
             dataGridViewResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridViewResults.Columns.Add("path", "Fichier");
+            //dataGridViewResults.Columns.Add("path", "Fichier");
         }
 
         #region Events
@@ -65,8 +65,74 @@ namespace SoundSelector
                 return;
             }
 
-            ComparisonEngine compEngine = new ComparisonEngine(textBoxFile.Text, textBoxFolder.Text);
-            compEngine.Compare();
+            backgroundWorkerComparaison = new BackgroundWorker();
+            backgroundWorkerComparaison.WorkerReportsProgress = true;
+            backgroundWorkerComparaison.DoWork += backgroundWorkerComparaison_DoWork;
+            backgroundWorkerComparaison.ProgressChanged += backgroundWorkerComparaison_ProgressChanged;
+            backgroundWorkerComparaison.RunWorkerCompleted += backgroundWorkerComparaison_RunWorkerCompleted;
+            backgroundWorkerComparaison.RunWorkerAsync();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxFile.Text = String.Empty;
+            textBoxFolder.Text = String.Empty;
+        }
+
+        private void buttonClearGrid_Click(object sender, EventArgs e)
+        {
+            dataGridViewResults.DataSource = null;
+        }
+
+        private void backgroundWorkerComparaison_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ComparisonEngine compEngine = new ComparisonEngine(textBoxFile.Text, textBoxFolder.Text, (double progress) =>
+            {
+                backgroundWorkerComparaison.ReportProgress((int)Math.Round(progress, 0));
+            });
+
+            if (String.IsNullOrWhiteSpace(textBoxFile.Text))
+            {
+                Dictionary<string, List<string>> couplesDoublons = compEngine.CompareAll();
+
+                List<string> results = new List<string>();
+
+                foreach (var dict in couplesDoublons)
+                {
+                    results.Add("1 - " + dict.Key);
+
+                    foreach (string doublon in dict.Value)
+                    {
+                        results.Add("1 - " + doublon);
+                    }
+                }
+
+                e.Result = results;
+            }
+            else
+            {
+                List<string> doublons = compEngine.Compare();
+
+                e.Result = doublons;
+            }
+        }
+
+        private void backgroundWorkerComparaison_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBarComp.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorkerComparaison_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                List<string> results = (List<string>)e.Result;
+
+                dataGridViewResults.DataSource = results.Select(x => new { Value = x }).ToList();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         #endregion

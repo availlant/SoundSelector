@@ -102,6 +102,9 @@ namespace Business.FingerprintsCreation
         /// <param name="path"></param>
         public void GenerateFingerprints(string path)
         {
+            if (_fingerprints.ContainsKey(path))
+                return;
+
             //Pour la facilité, je stocke tout dans cet objet
             AudioFile file = new AudioFile(path);
 
