@@ -36,7 +36,7 @@ namespace SoundSelector
 
         private void buttonParcourirFileToSearch_Click(object sender, EventArgs e)
         {
-            openFileDialog.Filter = "All Supported Audio | *.mp3; *.wma | MP3s | *.mp3 | WMAs | *.wma";
+            openFileDialog.Filter = "Audio Files (*.mp3, *.wav) |*.mp3;*.wav";
             openFileDialog.FilterIndex = 1;
             openFileDialog.Multiselect = false;
             openFileDialog.FileName = "";
@@ -97,14 +97,18 @@ namespace SoundSelector
 
                 List<string> results = new List<string>();
 
+                int i = 1;
+
                 foreach (var dict in couplesDoublons)
                 {
-                    results.Add("1 - " + dict.Key);
+                    results.Add(i + " - " + dict.Key);
 
                     foreach (string doublon in dict.Value)
                     {
-                        results.Add("1 - " + doublon);
+                        results.Add(i + " - " + doublon);
                     }
+
+                    i++;
                 }
 
                 e.Result = results;

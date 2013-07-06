@@ -33,6 +33,17 @@ namespace Business
                     {
                     }
                 }
+
+                foreach (FileInfo file in root.GetFiles("*.wav", SearchOption.AllDirectories))
+                {
+                    try
+                    {
+                        files.Add(file.FullName);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
             }
             catch (Exception)
             {

@@ -10,7 +10,7 @@ namespace Business.FingerprintsCreation
 {
     public class Spectrum
     {
-        Stride.Stride strideBetweenConsecutiveImages = new Stride.Stride(5115, 128 * 64);//64 = overlap; 128 = fingerprintsLenght
+        Stride.Stride strideBetweenConsecutiveImages = new Stride.Stride(512, 1024, 128 * 64, 0);
 
         int _sampleRate;
 

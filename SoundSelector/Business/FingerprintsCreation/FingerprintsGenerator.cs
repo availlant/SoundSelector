@@ -111,6 +111,7 @@ namespace Business.FingerprintsCreation
             //Preprocessing the signal
             Preprocessing preprocessingEngine = new Preprocessing(SampleRate, SecondsToProcess, StartProcessingAtSecond);
             preprocessingEngine.ReadMonoFromFile(file);
+            var test = file.Data[935];
 
             //SpectrogramCreation
             Spectrum spectrumEngine = new Spectrum(SampleRate);
