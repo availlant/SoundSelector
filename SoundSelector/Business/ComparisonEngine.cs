@@ -109,10 +109,14 @@ namespace Business
             GetFingerprints(fpGenerator);
 
             Dictionary<string, List<string>> doublons = new Dictionary<string, List<string>>();
+            List<string> filesAlreadyFound = new List<string>();
 
             //Parcours des fichiers
             foreach (var fileWithFingerprints in fpGenerator.Fingerprints)
             {
+                if (filesAlreadyFound.Contains(fileWithFingerprints.Key))
+                    continue;
+
                 Dictionary<string, int> fileDoublons = new Dictionary<string, int>();
 
                 //Parcours des tableaux de signatures
@@ -122,14 +126,10 @@ namespace Business
 
                     foreach (var file in signatureMatch)
                     {
-                        //doublons en un seul exemplaire : si A doublon de B, ne pas ajouter B doublon de A
-                        if (!doublons.ContainsKey(file.Key))
-                        {
-                            if (fileDoublons.ContainsKey(file.Key))
-                                fileDoublons[file.Key]++;
-                            else
-                                fileDoublons[file.Key] = 1;
-                        }
+                        if (fileDoublons.ContainsKey(file.Key))
+                            fileDoublons[file.Key]++;
+                        else
+                            fileDoublons[file.Key] = 1;
                     }
                 }
 
@@ -137,7 +137,9 @@ namespace Business
 
                 if (listDoublons.Count > 0)
                 {
-                    doublons.Add(fileWithFingerprints.Key, listDoublons);
+                    doublons[fileWithFingerprints.Key] = new List<string>(listDoublons);
+                    filesAlreadyFound.Add(fileWithFingerprints.Key);
+                    filesAlreadyFound.AddRange(listDoublons);
                 }
             }
 
