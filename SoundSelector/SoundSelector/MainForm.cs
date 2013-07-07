@@ -20,9 +20,33 @@ namespace SoundSelector
 
         private void InitGrid()
         {
-            dataGridViewResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewResults.Columns.Add("collection", "Numéro");
+            dataGridViewResults.Columns.Add("path", "Fichier");
+            dataGridViewResults.Columns.Add("lire", "Lecture");
+            dataGridViewResults.Columns.Add("supprimer", "Suppression");
 
-            //dataGridViewResults.Columns.Add("path", "Fichier");
+            dataGridViewResults.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridViewResults.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewResults.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewResults.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewResults.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+        }
+
+        private void PopulateGrid(Dictionary<string, List<string>> results)
+        {
+            int numCollection = 1;
+
+            foreach (var paire in results)
+            {
+                dataGridViewResults.Rows.Add(numCollection, paire.Key);
+
+                foreach (var file in paire.Value)
+                {
+                    dataGridViewResults.Rows.Add(numCollection, file);
+                }
+
+                numCollection++;
+            }
         }
 
         #region Events
@@ -60,6 +84,8 @@ namespace SoundSelector
 
         private void buttonRecherche_Click(object sender, EventArgs e)
         {
+            dataGridViewResults.Rows.Clear();
+
             if (String.IsNullOrWhiteSpace(textBoxFolder.Text))
             {
                 return;
@@ -93,31 +119,13 @@ namespace SoundSelector
 
             if (String.IsNullOrWhiteSpace(textBoxFile.Text))
             {
-                Dictionary<string, List<string>> couplesDoublons = compEngine.CompareAll();
-
-                List<string> results = new List<string>();
-
-                int i = 1;
-
-                foreach (var dict in couplesDoublons)
-                {
-                    results.Add(i + " - " + dict.Key);
-
-                    foreach (string doublon in dict.Value)
-                    {
-                        results.Add(i + " - " + doublon);
-                    }
-
-                    i++;
-                }
-
-                e.Result = results;
+                e.Result = compEngine.CompareAll();
             }
             else
             {
                 List<string> doublons = compEngine.Compare();
 
-                e.Result = doublons;
+                e.Result = new Dictionary<string, List<string>>() { { textBoxFile.Text, doublons } };
             }
         }
 
@@ -130,15 +138,15 @@ namespace SoundSelector
         {
             try
             {
-                List<string> results = (List<string>)e.Result;
+                Dictionary<string, List<string>> results = (Dictionary<string, List<string>>)e.Result;
 
-                dataGridViewResults.DataSource = results.Select(x => new { Value = x }).ToList();
+                PopulateGrid(results);
             }
             catch (Exception)
             {
             }
         }
 
-        #endregion
+        #endregion        
     }
 }
