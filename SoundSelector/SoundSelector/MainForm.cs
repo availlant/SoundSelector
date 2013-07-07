@@ -14,6 +14,8 @@ namespace SoundSelector
 {
     public partial class MainForm : Form
     {
+        WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace SoundSelector
             dataGridViewResults.Columns.Add("collection", "Numéro");
             dataGridViewResults.Columns.Add("path", "Fichier");
 
-            MyDataGridViewButtonColumn columnLire = new MyDataGridViewButtonColumn();
+            AudioDataGridViewButtonColumn columnLire = new AudioDataGridViewButtonColumn();
             columnLire.Name = "lire";
             columnLire.Text = "Lire";
             columnLire.HeaderText = "Lecture";
@@ -33,7 +35,7 @@ namespace SoundSelector
 
             dataGridViewResults.Columns.Add(columnLire);
 
-            MyDataGridViewButtonColumn columnSupp = new MyDataGridViewButtonColumn();
+            AudioDataGridViewButtonColumn columnSupp = new AudioDataGridViewButtonColumn();
             columnSupp.Name = "supp";
             columnSupp.Text = "Supprimer";
             columnSupp.HeaderText = "Suppression";
@@ -76,7 +78,7 @@ namespace SoundSelector
                     catch (Exception exception)
                     {
                         MessageBox.Show("Le fichier n'a pas pu être supprimer", "Erreur");
-                    }                    
+                    }
                 }
             }
         }
@@ -94,6 +96,8 @@ namespace SoundSelector
             }
             else
             {
+                player.URL = filePath;
+                player.controls.play();
             }
         }
 
@@ -172,7 +176,7 @@ namespace SoundSelector
 
         private void buttonClearGrid_Click(object sender, EventArgs e)
         {
-            dataGridViewResults.DataSource = null;
+            dataGridViewResults.Rows.Clear();
         }
 
         private void backgroundWorkerComparaison_DoWork(object sender, DoWorkEventArgs e)
@@ -212,19 +216,26 @@ namespace SoundSelector
             }
         }
 
-        #endregion        
+        #endregion
 
         private void dataGridViewResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewResults.Columns[e.ColumnIndex] is MyDataGridViewButtonColumn)
+            if (dataGridViewResults.Columns[e.ColumnIndex] is AudioDataGridViewButtonColumn)
             {
-                ((MyDataGridViewButtonColumn)dataGridViewResults.Columns[e.ColumnIndex]).RaiseEventCellClick(sender, e);
+                ((AudioDataGridViewButtonColumn)dataGridViewResults.Columns[e.ColumnIndex]).RaiseEventCellClick(sender, e);
             }
+        }
+
+        private void buttonSop_Click(object sender, EventArgs e)
+        {
+            player.controls.stop();
         }
     }
 
-    public class MyDataGridViewButtonColumn : DataGridViewButtonColumn
+    public class AudioDataGridViewButtonColumn : DataGridViewButtonColumn
     {
+        public bool playing = false;
+
         public event DataGridViewCellEventHandler cellClick;
 
         public virtual void RaiseEventCellClick(object sender, DataGridViewCellEventArgs e)
