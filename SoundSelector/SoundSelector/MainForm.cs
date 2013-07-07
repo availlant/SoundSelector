@@ -69,14 +69,14 @@ namespace SoundSelector
                         File.Delete(filePath);
                         MessageBox.Show("Le fichier a été supprimé", "Suppression");
                     }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show("Le fichier n'a pas pu être supprimer", "Erreur");
-                    }
                     catch (UnauthorizedAccessException exception)
                     {
                         MessageBox.Show("L'application n'a pas les droits pour supprimer le fichier", "Erreur");
                     }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show("Le fichier n'a pas pu être supprimer", "Erreur");
+                    }                    
                 }
             }
         }
