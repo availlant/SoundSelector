@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Business
 
         #region Constantes
 
-        /// <summary>
+        /*/// <summary>
         ///   Number of threshold votes for a file to be considerate a duplicate
         /// </summary>
         private const int _thresholdVotes = 5;
@@ -29,7 +30,17 @@ namespace Business
         ///   Value of threshold percentage of fingerprints that needs to be gathered
         ///   in order to be considered a possible result
         /// </summary>
-        private const int _thresholdFingerprintsToVote = 7;
+        private const int _thresholdFingerprintsToVote = 7;*/
+
+        /// <summary>
+        ///   Number of threshold votes for a file to be considerate a duplicate
+        /// </summary>
+        private int _thresholdVotes;
+        /// <summary>
+        ///   Value of threshold percentage of fingerprints that needs to be gathered
+        ///   in order to be considered a possible result
+        /// </summary>
+        private int _thresholdFingerprintsToVote;
 
         #endregion
 
@@ -38,6 +49,10 @@ namespace Business
             this._file = file;
             this._folder = folder;
             this._reportProgress = reportProgress;
+
+            int i;
+            _thresholdVotes = int.TryParse(ConfigurationSettings.AppSettings["thresholdVotes"], out i) ? i : 5;
+            _thresholdFingerprintsToVote = int.TryParse(ConfigurationSettings.AppSettings["thresholdFingerprintsToVote"], out i) ? i : 7;
 
             if (!String.IsNullOrWhiteSpace(file))
                 files.Add(_file);
