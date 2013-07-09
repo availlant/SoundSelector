@@ -124,7 +124,7 @@ namespace Business.FingerprintsCreation
             file.Data = data;
         }
         
-        public float[] ReadMonoFromFile(string pathToFile)
+        private float[] ReadMonoFromFile(string pathToFile)
         {
             // create streams for re-sampling
             int stream = Bass.BASS_StreamCreateFile(pathToFile, 0, 0, BASSFlag.BASS_STREAM_DECODE | BASSFlag.BASS_SAMPLE_MONO | BASSFlag.BASS_SAMPLE_FLOAT); // Decode the stream

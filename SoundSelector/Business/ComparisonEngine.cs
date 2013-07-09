@@ -51,15 +51,15 @@ namespace Business
         /// <param name="file">File</param>
         /// <param name="folder">Folder</param>
         /// <param name="reportProgress">Le traitement s'éxecute de manière asynchrone, reportProgress sera appelée à chaque fois qu'un fichier audio aura été analysé</param>
-        public ComparisonEngine(string file, string folder, Action<double> reportProgress)
+        public ComparisonEngine(string file, string folder, Action<double> reportProgress, int tresholdVotes, int tresholdFingerprintsToVote)
         {
             this._file = file;
             this._folder = folder;
             this._reportProgress = reportProgress;
 
             int i;
-            _thresholdVotes = int.TryParse(ConfigurationSettings.AppSettings["thresholdVotes"], out i) ? i : 5;
-            _thresholdFingerprintsToVote = int.TryParse(ConfigurationSettings.AppSettings["thresholdFingerprintsToVote"], out i) ? i : 7;
+            _thresholdVotes = tresholdVotes;
+            _thresholdFingerprintsToVote = tresholdFingerprintsToVote;
 
             if (!String.IsNullOrWhiteSpace(file))
                 files.Add(_file);

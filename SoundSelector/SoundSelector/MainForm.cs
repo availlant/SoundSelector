@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Business;
+using System.Configuration;
 
 namespace SoundSelector
 {
@@ -23,6 +24,11 @@ namespace SoundSelector
             //Icône de l'application
             Bitmap bmp = Properties.Resources.note_de_musique;
             this.Icon = Icon.FromHandle(bmp.GetHicon());
+
+            //Initialisation des valeurs
+            int i;
+            hScrollBarTreshlodToVote.Value = int.TryParse(ConfigurationSettings.AppSettings["thresholdVotes"], out i) ? i : 5;
+            hScrollBarTresholdNbFingerprints.Value = int.TryParse(ConfigurationSettings.AppSettings["thresholdFingerprintsToVote"], out i) ? i : 7;
         }
 
         private void InitGrid()
@@ -185,10 +191,12 @@ namespace SoundSelector
 
         private void backgroundWorkerComparaison_DoWork(object sender, DoWorkEventArgs e)
         {
+            int parse;
+
             ComparisonEngine compEngine = new ComparisonEngine(textBoxFile.Text, textBoxFolder.Text, (double progress) =>
             {
                 backgroundWorkerComparaison.ReportProgress((int)Math.Round(progress, 0));
-            });
+            }, int.TryParse(resultTresholdVote.Text, out parse) == true ? parse : 0, int.TryParse(resultTresholdFingerprints.Text, out parse) == true ? parse : 0);
 
             if (String.IsNullOrWhiteSpace(textBoxFile.Text))
             {
@@ -220,8 +228,6 @@ namespace SoundSelector
             }
         }
 
-        #endregion
-
         private void dataGridViewResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewResults.Columns[e.ColumnIndex] is AudioDataGridViewButtonColumn)
@@ -234,6 +240,18 @@ namespace SoundSelector
         {
             player.controls.stop();
         }
+
+        private void hScrollBarTreshlodToVote_ValueChanged(object sender, EventArgs e)
+        {
+            resultTresholdVote.Text = hScrollBarTreshlodToVote.Value != null ? hScrollBarTreshlodToVote.Value.ToString() : "0";
+        }
+
+        private void hScrollBarTresholdNbFingerprints_ValueChanged(object sender, EventArgs e)
+        {
+            resultTresholdFingerprints.Text = hScrollBarTresholdNbFingerprints.Value != null ? hScrollBarTresholdNbFingerprints.Value.ToString() : "0";
+        }
+
+        #endregion
     }
 
     public class AudioDataGridViewButtonColumn : DataGridViewButtonColumn

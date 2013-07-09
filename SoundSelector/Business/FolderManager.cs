@@ -12,7 +12,7 @@ namespace Business
     public static class FolderManager
     {
         /// <summary>
-        ///   Retourne la liste des fichiers audio contenus dans le dossier
+        ///   Retourne la liste des fichiers audio (mp3 + wav) contenus dans le dossier
         /// </summary>
         /// <param name = "path">Dossier ou chercher</param>
         /// <returns>List des fichiers audio</returns>
