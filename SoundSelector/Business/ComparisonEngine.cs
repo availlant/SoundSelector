@@ -15,9 +15,9 @@ namespace Business
         private string _file;
         private string _folder;
 
-        List<string> files = new List<string>();
+        private List<string> files = new List<string>();
 
-        Action<double> _reportProgress;
+        private Action<double> _reportProgress;
 
         #region Constantes
 
@@ -44,6 +44,13 @@ namespace Business
 
         #endregion
 
+        /// <summary>
+        /// Crée une nouvelle instance de la classe ComparisonEngine. Cette classe permet la recherche de doublons dans un dossier "Folder" (méthode CompareAll)
+        /// ou la recherche des doublons d'un fichier "File" dans un dossier "Folder" (méthode Compare)
+        /// </summary>
+        /// <param name="file">File</param>
+        /// <param name="folder">Folder</param>
+        /// <param name="reportProgress">Le traitement s'éxecute de manière asynchrone, reportProgress sera appelée à chaque fois qu'un fichier audio aura été analysé</param>
         public ComparisonEngine(string file, string folder, Action<double> reportProgress)
         {
             this._file = file;
@@ -59,7 +66,7 @@ namespace Business
             files.AddRange(FolderManager.GetMusicFiles(folder));
         }
 
-        public void GetFingerprints(FingerprintsGenerator fpGenerator)
+        private void GetFingerprints(FingerprintsGenerator fpGenerator)
         {
             int nbFiles = files.Count;
             int curseur = 0;
@@ -81,7 +88,7 @@ namespace Business
         }
 
         /// <summary>
-        /// Recherche des doublons d'un fichier
+        /// Recherche les doublons du fichier "File" dans le dossier "Folder"
         /// </summary>
         /// <returns></returns>
         public List<string> Compare()
@@ -114,7 +121,7 @@ namespace Business
         }
 
         /// <summary>
-        /// Recherche des doublons de lanière générale
+        /// Recherche les doublons dans le dossier "Folder"
         /// </summary>
         /// <returns></returns>
         public Dictionary<string, List<string>> CompareAll()

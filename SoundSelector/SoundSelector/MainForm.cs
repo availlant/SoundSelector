@@ -19,6 +19,10 @@ namespace SoundSelector
         public MainForm()
         {
             InitializeComponent();
+
+            //Icône de l'application
+            Bitmap bmp = Properties.Resources.note_de_musique;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
         }
 
         private void InitGrid()
