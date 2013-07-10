@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject></subject>
+		<subject>SoundSelector</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -341,6 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>Bass.Net.dll</td><td>{B2DCEDA8-B325-486A-B48B-05925BF2ABB8}</td><td>INSTALLDIR</td><td>2</td><td/><td>bass.net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{10685CCA-2ED7-4D63-91E6-0A5CDB9FEAB5}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SoundSelector.Primary_output</td><td>{8B3DC5B1-670B-4D07-B981-0C8BD4A20BDA}</td><td>INSTALLDIR</td><td>2</td><td/><td>soundselector.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SoundSelector.Source_Files</td><td>{1D371F43-5805-4FD5-9F9B-EDDA81FC3586}</td><td>INSTALLDIR</td><td>2</td><td/><td>soundselector.source_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1149,7 +1150,7 @@
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>MY_PRODUCT_NAME</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>SOUNDSELECTOR1</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1165,6 +1166,7 @@
 		<row><td>ProgramMenuFolder</td><td>TARGETDIR</td><td>.:Programs</td><td/><td>3</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
 		<row><td>SOUNDSELECTOR</td><td>ProgramFilesFolder</td><td>SOUNDS~1|SoundSelector</td><td/><td>0</td><td/></row>
+		<row><td>SOUNDSELECTOR1</td><td>SOUNDSELECTOR</td><td>SOUNDS~1|SoundSelector</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
 		<row><td>StartMenuFolder</td><td>TARGETDIR</td><td>.:STARTM~1|Start Menu</td><td/><td>3</td><td/></row>
 		<row><td>StartupFolder</td><td>TARGETDIR</td><td>.:StartUp</td><td/><td>3</td><td/></row>
@@ -1869,6 +1871,7 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>Bass.Net.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>SoundSelector.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>SoundSelector.Source_Files</td></row>
@@ -1893,6 +1896,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>bass.dll</td><td>bass.dll</td><td>bass.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\bass.dll</td><td>1</td><td/></row>
+		<row><td>bass.net.dll</td><td>Bass.Net.dll</td><td>BASSNE~1.DLL|Bass.Net.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\Bass.Net.dll</td><td>1</td><td/></row>
 		<row><td>bass_fx.dll</td><td>bass_fx.dll</td><td>bass_fx.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\bass_fx.dll</td><td>1</td><td/></row>
 		<row><td>bassenc.dll</td><td>bassenc.dll</td><td>bassenc.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\bassenc.dll</td><td>1</td><td/></row>
 		<row><td>bassflac.dll</td><td>bassflac.dll</td><td>bassflac.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\bassflac.dll</td><td>1</td><td/></row>
@@ -2156,6 +2160,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>Bass.Net.dll</td><td/><td/><td>_3D0CAC25_234D_418D_A57C_396ACAE2EBAA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_69E8BD91_3923_4670_B684_91EC31AF2CAA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SoundSelector.Primary_output</td><td/><td/><td>_6AA7A65F_B61F_4F22_962C_D190E0149968_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SoundSelector.Source_Files</td><td/><td/><td>_E4D1ED4C_BA9B_45F5_8EF0_6AE60642B8DF_FILTER</td><td/><td/><td/><td/></row>
@@ -4516,7 +4521,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]SoundSelector.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{D0285DAD-589B-44CC-A2D4-5DEBE3F98CE5}</td><td/></row>
-		<row><td>ProductName</td><td>Install</td><td/></row>
+		<row><td>ProductName</td><td>SoundSelector</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
