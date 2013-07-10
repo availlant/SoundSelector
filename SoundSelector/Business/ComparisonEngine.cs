@@ -19,6 +19,16 @@ namespace Business
 
         private Action<double> _reportProgress;
 
+        /// <summary>
+        ///   Number of threshold votes for a file to be considerate a duplicate
+        /// </summary>
+        private int _thresholdVotes;
+        /// <summary>
+        ///   Value of threshold percentage of fingerprints that needs to be gathered
+        ///   in order to be considered a possible result
+        /// </summary>
+        private int _thresholdFingerprintsToVote;
+
         #region Constantes
 
         /*/// <summary>
@@ -30,17 +40,7 @@ namespace Business
         ///   Value of threshold percentage of fingerprints that needs to be gathered
         ///   in order to be considered a possible result
         /// </summary>
-        private const int _thresholdFingerprintsToVote = 7;*/
-
-        /// <summary>
-        ///   Number of threshold votes for a file to be considerate a duplicate
-        /// </summary>
-        private int _thresholdVotes;
-        /// <summary>
-        ///   Value of threshold percentage of fingerprints that needs to be gathered
-        ///   in order to be considered a possible result
-        /// </summary>
-        private int _thresholdFingerprintsToVote;
+        private const int _thresholdFingerprintsToVote = 7;*/        
 
         #endregion
 
@@ -66,6 +66,10 @@ namespace Business
             files.AddRange(FolderManager.GetMusicFiles(folder));
         }
 
+        /// <summary>
+        /// Génére les empreintes pour l'ensembles des fichiers contenus dans "files"
+        /// </summary>
+        /// <param name="fpGenerator"></param>
         private void GetFingerprints(FingerprintsGenerator fpGenerator)
         {
             int nbFiles = files.Count;
