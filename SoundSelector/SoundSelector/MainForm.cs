@@ -16,14 +16,11 @@ namespace SoundSelector
     public partial class MainForm : Form
     {
         WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+        BackgroundWorker _workerComparaison;
 
         public MainForm()
         {
             InitializeComponent();
-
-            //Icône de l'application
-            Bitmap bmp = Properties.Resources.note_de_musique;
-            this.Icon = Icon.FromHandle(bmp.GetHicon());
 
             //Initialisation des valeurs
             int i;
@@ -170,12 +167,26 @@ namespace SoundSelector
                 return;
             }
 
-            backgroundWorkerComparaison = new BackgroundWorker();
-            backgroundWorkerComparaison.WorkerReportsProgress = true;
-            backgroundWorkerComparaison.DoWork += backgroundWorkerComparaison_DoWork;
-            backgroundWorkerComparaison.ProgressChanged += backgroundWorkerComparaison_ProgressChanged;
-            backgroundWorkerComparaison.RunWorkerCompleted += backgroundWorkerComparaison_RunWorkerCompleted;
-            backgroundWorkerComparaison.RunWorkerAsync();
+            if (_workerComparaison == null)
+            {
+                _workerComparaison = new BackgroundWorker();
+                _workerComparaison.WorkerReportsProgress = true;
+                _workerComparaison.DoWork += backgroundWorkerComparaison_DoWork;
+                _workerComparaison.ProgressChanged += backgroundWorkerComparaison_ProgressChanged;
+                _workerComparaison.RunWorkerCompleted += backgroundWorkerComparaison_RunWorkerCompleted;
+                _workerComparaison.RunWorkerAsync();
+            }
+            else
+            {
+                if (!_workerComparaison.IsBusy)
+                {
+                    _workerComparaison.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Une recherche est actuellement en cours", "Recherche");
+                }
+            }
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -195,7 +206,7 @@ namespace SoundSelector
 
             ComparisonEngine compEngine = new ComparisonEngine(textBoxFile.Text, textBoxFolder.Text, (double progress) =>
             {
-                backgroundWorkerComparaison.ReportProgress((int)Math.Round(progress, 0));
+                this._workerComparaison.ReportProgress((int)Math.Round(progress, 0));
             }, int.TryParse(resultTresholdVote.Text, out parse) == true ? parse : 0, int.TryParse(resultTresholdFingerprints.Text, out parse) == true ? parse : 0);
 
             if (String.IsNullOrWhiteSpace(textBoxFile.Text))

@@ -61,12 +61,12 @@ namespace SoundSelector.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap note_de_musique {
+        internal static System.Drawing.Icon musique {
             get {
-                object obj = ResourceManager.GetObject("note_de_musique", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("musique", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }
