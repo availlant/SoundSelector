@@ -230,6 +230,9 @@ namespace SoundSelector
 
         private void dataGridViewResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == -1)
+                return;
+
             if (dataGridViewResults.Columns[e.ColumnIndex] is AudioDataGridViewButtonColumn)
             {
                 ((AudioDataGridViewButtonColumn)dataGridViewResults.Columns[e.ColumnIndex]).RaiseEventCellClick(sender, e);
