@@ -57,7 +57,6 @@ namespace Business
             this._folder = folder;
             this._reportProgress = reportProgress;
 
-            int i;
             _thresholdVotes = tresholdVotes;
             _thresholdFingerprintsToVote = tresholdFingerprintsToVote;
 
