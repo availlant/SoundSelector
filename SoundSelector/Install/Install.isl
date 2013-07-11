@@ -2800,7 +2800,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>SoundSelector</td><td>0</td><td/><td>1537322288</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>SoundSelector</td><td>0</td><td/><td>1537334966</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>1403099889</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>1403099889</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1537332528</td></row>
@@ -3904,8 +3904,8 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>1403099889</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1403099889</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1403099889</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.SoundSelector.com</td><td>0</td><td/><td>1537322288</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>SoundSelector</td><td>0</td><td/><td>1537322288</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.SoundSelector.com</td><td>0</td><td/><td>1537334966</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>SoundSelector</td><td>0</td><td/><td>1537334966</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1403099889</td></row>
 	</table>
 
@@ -4014,7 +4014,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\musique.ico</td><td>0</td></row>
-		<row><td>_Built_06C8CE591CF5463DBB9CB1555768D31F.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\musique.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4604,7 +4603,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>SoundSelector.Primary_output</td><td/><td>sounds_1_soundselector1</td><td>2</td></row>
-		<row><td>_Built</td><td>SoundSelector.Primary_output</td><td/><td>sounds_1_soundselector1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4690,7 +4688,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>sounds_1_soundselector1</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>SoundSelector.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_06C8CE591CF5463DBB9CB1555768D31F.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
