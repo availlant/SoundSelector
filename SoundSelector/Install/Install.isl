@@ -4016,8 +4016,8 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Alexis\Downloads\logo-notxt.ico</td><td>0</td></row>
-		<row><td>SoundSelector.exe_5BA68A59BCFA4741AC399003D41AA1E1.exe</td><td/><td>C:\Users\Alexis\Downloads\logo-notxt.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\logo-notxt.ico</td><td>0</td></row>
+		<row><td>SoundSelector.exe_10B2EAA3A9A14770A6AC2AF8B7BFA808.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\logo-notxt.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4693,7 +4693,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SoundSelector.exe</td><td>sounds_1_soundselector1</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>SoundSelector.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SoundSelector.exe_5BA68A59BCFA4741AC399003D41AA1E1.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SoundSelector.exe</td><td>sounds_1_soundselector1</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>SoundSelector.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SoundSelector.exe_10B2EAA3A9A14770A6AC2AF8B7BFA808.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
