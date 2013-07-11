@@ -344,7 +344,6 @@
 		<row><td>Bass.Net.dll</td><td>{B2DCEDA8-B325-486A-B48B-05925BF2ABB8}</td><td>INSTALLDIR</td><td>2</td><td/><td>bass.net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{10685CCA-2ED7-4D63-91E6-0A5CDB9FEAB5}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SoundSelector.Primary_output</td><td>{8B3DC5B1-670B-4D07-B981-0C8BD4A20BDA}</td><td>INSTALLDIR</td><td>2</td><td/><td>soundselector.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SoundSelector.Source_Files</td><td>{1D371F43-5805-4FD5-9F9B-EDDA81FC3586}</td><td>INSTALLDIR</td><td>2</td><td/><td>soundselector.source_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>SoundSelector.exe</td><td>{B6D4FDFB-D4B2-4139-B900-E254AF66BC29}</td><td>INSTALLDIR</td><td>2</td><td/><td>soundselector.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>bass.dll</td><td>{28CABA33-B306-4D5E-993C-F1A3C12E8D62}</td><td>INSTALLDIR</td><td>2</td><td/><td>bass.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>bass_fx.dll</td><td>{8ADADB57-A37B-4382-BACA-1C105CECE296}</td><td>INSTALLDIR</td><td>2</td><td/><td>bass_fx.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1876,7 +1875,6 @@
 		<row><td>AlwaysInstall</td><td>Bass.Net.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>SoundSelector.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>SoundSelector.Source_Files</td></row>
 		<row><td>AlwaysInstall</td><td>SoundSelector.exe</td></row>
 		<row><td>AlwaysInstall</td><td>bass.dll</td></row>
 		<row><td>AlwaysInstall</td><td>bass_fx.dll</td></row>
@@ -1907,7 +1905,6 @@
 		<row><td>basswma.dll</td><td>basswma.dll</td><td>basswma.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\basswma.dll</td><td>1</td><td/></row>
 		<row><td>soundselector.exe</td><td>SoundSelector.exe</td><td>SOUNDS~1.EXE|SoundSelector.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\bin\Debug\SoundSelector.exe</td><td>1</td><td/></row>
 		<row><td>soundselector.primary_output</td><td>SoundSelector.Primary_output</td><td>SoundSelector.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;SoundSelector&gt;|Built</td><td>3</td><td/></row>
-		<row><td>soundselector.source_files</td><td>SoundSelector.Source_Files</td><td>SoundSelector.Source Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;SoundSelector&gt;|SourceFiles</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2169,7 +2166,6 @@
 		<row><td>Bass.Net.dll</td><td/><td/><td>_3D0CAC25_234D_418D_A57C_396ACAE2EBAA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_69E8BD91_3923_4670_B684_91EC31AF2CAA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SoundSelector.Primary_output</td><td/><td/><td>_6AA7A65F_B61F_4F22_962C_D190E0149968_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SoundSelector.Source_Files</td><td/><td/><td>_E4D1ED4C_BA9B_45F5_8EF0_6AE60642B8DF_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>SoundSelector.exe</td><td/><td/><td>_F9486C43_ECA6_478A_A14A_F8E0B816D974_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>bass.dll</td><td/><td/><td>_57E72D40_31EC_483C_AA9D_13AF4D57F4E9_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>bass_fx.dll</td><td/><td/><td>_1FE1E560_4822_45AB_9F17_DB3A9848274B_FILTER</td><td/><td/><td/><td/></row>
@@ -4020,8 +4016,8 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\musique.ico</td><td>0</td></row>
-		<row><td>SoundSelector.exe_DB9BB1EBA7394E58B06D33DBF21B1299.exe</td><td/><td>C:\Users\Alexis\Desktop\Projets - 4AL\Projet Annuel - SoundSelector\SoundSelector\SoundSelector\SoundSelector\Resources\musique.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Alexis\Downloads\logo-notxt.ico</td><td>0</td></row>
+		<row><td>SoundSelector.exe_5BA68A59BCFA4741AC399003D41AA1E1.exe</td><td/><td>C:\Users\Alexis\Downloads\logo-notxt.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4697,7 +4693,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SoundSelector.exe</td><td>sounds_1_soundselector1</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>SoundSelector.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SoundSelector.exe_DB9BB1EBA7394E58B06D33DBF21B1299.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SoundSelector.exe</td><td>sounds_1_soundselector1</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td>SoundSelector.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SoundSelector.exe_5BA68A59BCFA4741AC399003D41AA1E1.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
