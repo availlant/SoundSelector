@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Install", "Install\Install.isproj", "{8D25E520-1C37-49DF-A493-7A4156E6C72D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{C7103440-E22F-4126-92AB-0427F5883A63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -46,6 +48,16 @@ Global
 		{8D25E520-1C37-49DF-A493-7A4156E6C72D}.Release|Any CPU.Build.0 = SingleImage
 		{8D25E520-1C37-49DF-A493-7A4156E6C72D}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{8D25E520-1C37-49DF-A493-7A4156E6C72D}.SingleImage|Any CPU.Build.0 = SingleImage
+		{C7103440-E22F-4126-92AB-0427F5883A63}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{C7103440-E22F-4126-92AB-0427F5883A63}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -179,7 +179,7 @@ namespace SoundSelector
             else
             {
                 if (!_workerComparaison.IsBusy)
-                {
+                { 
                     _workerComparaison.RunWorkerAsync();
                 }
                 else
